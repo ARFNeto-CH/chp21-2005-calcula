@@ -1,20 +1,40 @@
-// chp21-2005-calcula.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+#include "Calc.cpp"
 
-#include <iostream>
+void testCalculator(Calculator* calc);
 
-int main()
-{
-    std::cout << "Hello World!\n";
+int main() {
+
+    DisplaySthefani* d1 = new DisplaySthefani();
+    CpuSthefani* cpu1 = new CpuSthefani(d1);
+    KeyboardSthefani* kb1 = new KeyboardSthefani(cpu1);
+
+    CalculatorSthefani* calc = new CalculatorSthefani(d1, cpu1, kb1);
+
+    testCalculator(calc);
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+void testCalculator(Calculator* calc) {
+    calc->getKeyboard()->pressUm();
+    calc->getKeyboard()->pressDois();
+    calc->getKeyboard()->pressTres();
+    calc->getKeyboard()->pressSum();
+    calc->getKeyboard()->pressQuatro();
+    calc->getKeyboard()->pressCinco();
+    calc->getKeyboard()->pressSeis();
+    calc->getKeyboard()->pressSum();
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+    calc->getKeyboard()->pressCE();
+
+    calc->getKeyboard()->pressDois();
+    calc->getKeyboard()->pressTres();
+    calc->getKeyboard()->pressSum();
+    calc->getKeyboard()->pressQuatro();
+    calc->getKeyboard()->pressCinco();
+    calc->getKeyboard()->pressSubtraction();
+    calc->getKeyboard()->pressSeis();
+    calc->getKeyboard()->pressSete();
+    calc->getKeyboard()->pressEqual();
+}
+
